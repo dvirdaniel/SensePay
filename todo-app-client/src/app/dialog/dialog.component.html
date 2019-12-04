@@ -1,0 +1,19 @@
+<h1 mat-dialog-title><strong>{{action}}</strong>  Task</h1>
+<div mat-dialog-content>
+
+  <mat-form-field *ngIf="action != 'Delete'; else elseTemplate">
+    <input placeholder="{{action}} Name" matInput [(ngModel)]="local_data.name">
+  </mat-form-field>
+
+  <div *ngIf="action != 'Delete'">
+    <mat-checkbox labelPosition="before" [(ngModel)]="local_data.isDone">Is Done?</mat-checkbox>
+  </div>
+
+  <ng-template #elseTemplate>
+    Are you sure you want to delete <b>{{local_data.name}}</b>?
+  </ng-template>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="doAction()">{{action}}</button>
+  <button mat-button (click)="closeDialog()" mat-flat-button color="warn">Cancel</button>
+</div>
