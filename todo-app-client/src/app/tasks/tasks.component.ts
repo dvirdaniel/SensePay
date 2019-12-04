@@ -28,7 +28,7 @@ export class TasksComponent implements OnInit {
 
   listenToServer() {
     this.apiService.getMessageFromServer().subscribe( result => {
-      console.log('Result from server: ' + result);
+      //console.log('Result from server: ' + result);
       this.tasksService.loadTasks();
     });
   }
@@ -45,12 +45,10 @@ export class TasksComponent implements OnInit {
       if (result) {
         let data = result.data;
         if (result.event == 'Add') {
-          let task = new CreateTaskDTO();
-          task.name = data.name;
-          task.isDone = false;
-          this.tasksService.addTask(task);
+          this.tasksService.addTask(data);
           this.apiService.sendMessageToServer('A new task was added');
         } else if (result.event == 'Update') {
+          this.tasksService.updateTask(data);
           this.apiService.sendMessageToServer('A new task was updated');
         } else if (result.event == 'Delete') {
           this.tasksService.deleteTask(data._id);
