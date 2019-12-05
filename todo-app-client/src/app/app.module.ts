@@ -9,9 +9,10 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {DialogComponent} from './dialog/dialog.component';
 import {TasksComponent} from "./tasks/tasks.component";
 import {SocketIoConfig, SocketIoModule} from "ngx-socket-io";
+import {environment} from "../environments/environment";
 
 const config: SocketIoConfig = {
-  url: 'http://localhost:3000', options: {}
+  url: 'http://localhost:'+environment.port, options: {}
 };
 
 @NgModule({
