@@ -3,7 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {MatTableDataSource} from "@angular/material";
 import {environment} from "../../environments/environment";
 
-const BASE_API_URL = ':'+environment.port+'/api/tasks';
+const BASE_API_URL = '/api/tasks';
 
 @Injectable({
   providedIn: 'root'
