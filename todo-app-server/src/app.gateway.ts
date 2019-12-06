@@ -9,7 +9,7 @@ import {
 import {Logger} from '@nestjs/common';
 import {Server, Socket} from "socket.io";
 
-@WebSocketGateway(3000, {'transports': ['websocket', 'polling']} )
+@WebSocketGateway( {'transports': ['websocket', 'polling']} )
 export class AppGateway implements OnGatewayInit, OnGatewayConnection, OnGatewayDisconnect {
 
   private logger: Logger = new Logger('AppGateway');
