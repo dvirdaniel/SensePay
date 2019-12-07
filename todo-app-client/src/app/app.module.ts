@@ -11,7 +11,7 @@ import {TasksComponent} from "./tasks/tasks.component";
 import {SocketIoConfig, SocketIoModule} from "ngx-socket-io";
 
 const config: SocketIoConfig = {
-  url: '/websocket', options: { 'transports': ['websocket', 'polling'] }
+  url: '', options: { 'transports': ['websocket', 'polling'] }
 };
 
 @NgModule({
